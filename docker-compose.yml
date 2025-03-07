@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  app:
+    container_name: croce-russo  # Nome personalizzato del container
+    build:
+      context: .  
+      dockerfile: Dockerfile
+    image: croce-russo  # Nome personalizzato dell'immagine
+    volumes:
+      - .:/app  # Monta la cartella locale nel container
+    command: ["python", "ProvaScript.py"]
