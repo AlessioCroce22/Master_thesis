@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Comando di default all'avvio del container
-CMD ["python", "ProvaScript.py"]
+CMD ["python"]
 

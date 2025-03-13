@@ -1,4 +1,3 @@
-version: "3.8"
 services:
   app:
     container_name: croce_russo  # Nome personalizzato del container
@@ -7,5 +6,17 @@ services:
       dockerfile: Dockerfile
     image: croce_russo  # Nome personalizzato dell'immagine
     volumes:
-      - .:/app  # Monta la cartella locale nel container
-    command: ["python", "ProvaScript.py"]
+      - /mnt/ssd1/croce/MUSIC-dataset:/app/data
+      - /mnt/ssd1/croce/Worked-data:/app/work-data
+      - .:/app
+    command: ["python", "ScriptProve.py"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=2  # Usa solo la GPU 2
+    runtime: nvidia
