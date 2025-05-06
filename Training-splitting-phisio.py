@@ -73,7 +73,7 @@ def split_train_test(signals, reference_data, test_size=0.2):
     
     return train_set, test_set
 
-def save_processed_signals(signals, reference_data, output_dir=r"C:\Users\aless\Downloads\phisionet_dataset\processed_signals"):
+def save_processed_signals(signals, reference_data, output_dir=r"\app\work-data"):
     os.makedirs(output_dir, exist_ok=True)
     train_dir = os.path.join(output_dir, "training")
     test_dir = os.path.join(output_dir, "test")
@@ -120,8 +120,8 @@ def plot_random_signal(signals, title):
     plt.show()
 
 def main():
-    reference_path = r"C:\Users\aless\Downloads\phisionet_dataset\REFERENCE.csv"
-    signal_dir = r"C:\Users\aless\Downloads\phisionet_dataset\signals"
+    reference_path = r"\app\data\REFERENCE.csv"
+    signal_dir = r"\app\data\signals"
     
     reference_data = load_reference_data(reference_path)
     signals = load_signals(signal_dir, reference_data)
